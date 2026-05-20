@@ -1,0 +1,214 @@
+Compare `/home/ollie/Documents/agent-orchestration/` and `/home/ollie/Documents/agent-orchestration-2/` for their Workflow Lisp frontend implementations.
+
+Do not run tests. Use only static inspection: files, docs, specs, run_state/progress ledgers, agent summaries, artifacts, source code, fixtures, and test files.
+
+Evaluate all of the following:
+
+1. Full implementation quality:
+   - spec adherence
+   - internal consistency
+   - correctness
+   - maintainability
+   - test coverage
+   - design coverage
+
+2. Subset-only quality:
+   Compare only the subset implemented in `agent-orchestration-2/` against the equivalent subset in `agent-orchestration/`.
+
+3. Agent-summary churn:
+   Inspect drain/RALPH summaries, run_state files, progress ledgers, iteration summaries, repair artifacts, duplicate completions, repeated file edits, and review/repair passes.
+
+4. Progress rate over time:
+   Estimate implementation progress as a function of elapsed time. Include rates such as completed design gaps/hour, RALPH iterations/hour, and any visible slowdown/speedup.
+
+5. Progress by top-level iteration:
+   Build parseable progress series for:
+   - `agent-orchestration/` top-level Lisp drain iterations
+   - `agent-orchestration-2/` top-level RALPH/drain iterations
+   Include cumulative progress values per iteration. If a plot is generated, include the file path, but the numeric series must be present in JSON.
+
+6. Time trend comparison:
+   Compare whether each repo's progress rate remains stable or shows increasing churn as implementation progresses. Include first/middle/last segment rates when possible.
+
+7. MVP and full-design completion:
+   Estimate MVP completion percentage and full-design completion percentage for each repo. Explain whether percentages are based on durable ledger completion, functional static-code evidence, or both.
+
+Return only valid JSON. No markdown, no prose outside JSON.
+
+Use this JSON shape:
+
+{
+  "repos": {
+    "agent-orchestration": {
+      "path": "/home/ollie/Documents/agent-orchestration",
+      "full_quality_scores": {
+        "spec_adherence": 0,
+        "internal_consistency": 0,
+        "correctness": 0,
+        "maintainability": 0,
+        "test_coverage": 0,
+        "design_coverage": 0,
+        "overall": 0
+      },
+      "subset_quality_scores": {
+        "spec_adherence": 0,
+        "internal_consistency": 0,
+        "correctness": 0,
+        "maintainability": 0,
+        "test_coverage": 0,
+        "design_coverage": 0,
+        "overall": 0
+      },
+      "completion_estimates": {
+        "mvp_percent": 0,
+        "full_design_percent": 0,
+        "ledger_based_mvp_percent": 0,
+        "ledger_based_full_design_percent": 0,
+        "functional_static_mvp_percent": 0,
+        "functional_static_full_design_percent": 0
+      },
+      "progress": {
+        "elapsed_hours": 0,
+        "completed_design_gaps": 0,
+        "completed_iterations": 0,
+        "design_gaps_per_hour": 0,
+        "iterations_per_hour": 0,
+        "progress_by_iteration": [
+          {
+            "iteration": 0,
+            "completed_this_iteration": 0,
+            "cumulative_completed": 0,
+            "unit": "design_gap",
+            "item_id": ""
+          }
+        ],
+        "time_segments": [
+          {
+            "segment": "first",
+            "elapsed_hours": 0,
+            "completed_units": 0,
+            "units_per_hour": 0,
+            "avg_changed_files": null,
+            "churn_signal_count": 0
+          }
+        ]
+      },
+      "churn": {
+        "rating_0_to_10": 0,
+        "duplicate_completion_count": 0,
+        "repair_artifact_count": 0,
+        "review_repair_pass_count": 0,
+        "repeated_file_touch_summary": [],
+        "trend": "stable|increasing|decreasing|mixed|unknown",
+        "notes": []
+      },
+      "evidence": [
+        {
+          "claim": "",
+          "file": "",
+          "line": null
+        }
+      ]
+    },
+    "agent-orchestration-2": {
+      "path": "/home/ollie/Documents/agent-orchestration-2",
+      "full_quality_scores": {
+        "spec_adherence": 0,
+        "internal_consistency": 0,
+        "correctness": 0,
+        "maintainability": 0,
+        "test_coverage": 0,
+        "design_coverage": 0,
+        "overall": 0
+      },
+      "subset_quality_scores": {
+        "spec_adherence": 0,
+        "internal_consistency": 0,
+        "correctness": 0,
+        "maintainability": 0,
+        "test_coverage": 0,
+        "design_coverage": 0,
+        "overall": 0
+      },
+      "completion_estimates": {
+        "mvp_percent": 0,
+        "full_design_percent": 0,
+        "ledger_based_mvp_percent": 0,
+        "ledger_based_full_design_percent": 0,
+        "functional_static_mvp_percent": 0,
+        "functional_static_full_design_percent": 0
+      },
+      "progress": {
+        "elapsed_hours": 0,
+        "completed_design_gaps": 0,
+        "completed_iterations": 0,
+        "design_gaps_per_hour": 0,
+        "iterations_per_hour": 0,
+        "progress_by_iteration": [
+          {
+            "global_iteration": 0,
+            "run": "",
+            "local_iteration": 0,
+            "completed_this_iteration": 0,
+            "cumulative_completed": 0,
+            "unit": "ralph_iteration",
+            "item_id": ""
+          }
+        ],
+        "time_segments": [
+          {
+            "segment": "first",
+            "elapsed_hours": 0,
+            "completed_units": 0,
+            "units_per_hour": 0,
+            "avg_changed_files": 0,
+            "churn_signal_count": 0
+          }
+        ]
+      },
+      "churn": {
+        "rating_0_to_10": 0,
+        "duplicate_completion_count": 0,
+        "repair_artifact_count": 0,
+        "review_repair_pass_count": 0,
+        "repeated_file_touch_summary": [
+          {
+            "file": "",
+            "touch_count": 0
+          }
+        ],
+        "trend": "stable|increasing|decreasing|mixed|unknown",
+        "notes": []
+      },
+      "evidence": [
+        {
+          "claim": "",
+          "file": "",
+          "line": null
+        }
+      ]
+    }
+  },
+  "comparative_conclusions": {
+    "higher_quality_full_implementation": "agent-orchestration|agent-orchestration-2|tie|unclear",
+    "higher_quality_subset_implementation": "agent-orchestration|agent-orchestration-2|tie|unclear",
+    "higher_raw_progress_rate": "agent-orchestration|agent-orchestration-2|tie|unclear",
+    "more_stable_progress_rate": "agent-orchestration|agent-orchestration-2|tie|unclear",
+    "more_churn": "agent-orchestration|agent-orchestration-2|tie|unclear",
+    "better_mvp_completion": "agent-orchestration|agent-orchestration-2|tie|unclear",
+    "better_full_design_completion": "agent-orchestration|agent-orchestration-2|tie|unclear",
+    "summary": ""
+  },
+  "plot_artifacts": [
+    {
+      "description": "",
+      "path": ""
+    }
+  ],
+  "methodology": {
+    "tests_run": false,
+    "static_only": true,
+    "scoring_scale": "0-10 for quality/churn, 0-100 for completion percentages",
+    "caveats": []
+  }
+}
